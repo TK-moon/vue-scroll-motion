@@ -1,4 +1,5 @@
-import { ref, onBeforeMount, onBeforeUnmount, Ref } from "vue"
+import { ref, onBeforeMount, onBeforeUnmount } from "vue"
+import type { Ref } from "vue"
 import throttle from "lodash/throttle"
 
 /**
