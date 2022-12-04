@@ -17,6 +17,16 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
       name: "vue-scroll-motion",
+      formats: ["es", "umd"],
+      fileName: (format) => `vue-scroll-motion.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["vue"],
+      output: {
+        globals: {
+          vue: "Vue",
+        },
+      },
     },
   },
 })

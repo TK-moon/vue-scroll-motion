@@ -1,11 +1,17 @@
-import AnimationSection from "./components/AnimationSection.vue"
-import Animator from "./components/Animator.vue"
+// import type { Plugin } from "vue"
 
-export default {
-  AnimationSection: AnimationSection,
-  Animator: Animator,
-  install(app: any) {
-    app.component("AnimationSection", AnimationSection)
-    app.component("Animator", Animator)
-  },
-}
+// import components from "./components"
+// export default components
+
+// export const VaguerComponents: Plugin = {
+//   install(app) {
+//     Object.entries(components).forEach(([key, value]: [string, any]) => {
+//       app.component(key, value)
+//     })
+//   },
+// }
+
+// START_EXPORTS
+export { default as AnimationSection } from "./components/AnimationSection.vue"
+export { default as Animator } from "./components/Animator.vue"
+// END_EXPORTS
