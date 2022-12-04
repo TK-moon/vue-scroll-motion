@@ -27,8 +27,10 @@ jobs:
       - name: Bump Version
         run: npm version ${{ inputs.version }}
 
-      - name: Push Version
+      - name: Push Tag
         run: git push origin main --tags
+
+      - name: Push Version
         uses: actions/upload-artifact@v2
         with:
           name: src
