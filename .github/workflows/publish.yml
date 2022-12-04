@@ -19,6 +19,9 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - name: Set git config
+        run: git config --global.user.email "tkmoon.dev@gmail.com" && git config --global.user.name "TK-moon"
+
       - name: Use Node 16
         uses: actions/setup-node@v1
         with:
