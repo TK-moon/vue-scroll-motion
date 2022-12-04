@@ -1,6 +1,6 @@
 {
   "name": "vue-scroll-motion",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "vue scroll animation library like scroll-timeline",
   "license": "MIT",
