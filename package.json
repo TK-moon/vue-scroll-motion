@@ -1,9 +1,18 @@
 {
   "name": "vue-scroll-motion",
+  "author": "TK Moon <tkmoon.dev@gmail.com>",
   "version": "0.0.6",
   "private": false,
   "description": "vue scroll animation library like scroll-timeline",
   "license": "MIT",
+  "main": "dist/vue-scroll-motion.es.js",
+  "keywords": [
+    "scroll-motion",
+    "vue scroll animation",
+    "vue-scroll-library",
+    "scroll-animation",
+    "scroll-timeline"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/TK-moon/vue-scroll-motion.git"
