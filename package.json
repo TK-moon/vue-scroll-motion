@@ -17,7 +17,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
     "lodash": "^4.17.21",
     "vue": "^3.2.45"
   },
@@ -25,6 +24,7 @@
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.1",
