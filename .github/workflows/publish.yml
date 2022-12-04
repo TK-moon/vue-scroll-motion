@@ -36,6 +36,9 @@ jobs:
       - name: Bump Version
         run: npm version ${{ inputs.version }}
 
+      - name: Push Tag
+        run: git push origin main --tags
+
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
