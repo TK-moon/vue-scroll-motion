@@ -1,6 +1,5 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
     "baseUrl": ".",
     "module": "ESNext",
@@ -27,6 +26,7 @@
       "@/*": ["src/*"]
     }
   },
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": [
     "node_modules",
     "**/**/*.test.ts",
