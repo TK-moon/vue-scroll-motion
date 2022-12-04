@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType } from "vue"
+import { defineComponent, ref } from "vue"
+import type { PropType } from "vue"
 import useScrollY from "@/lib/useScrollY"
 import { computed } from "@vue/reactivity"
 import { getAnimationTimelineData } from "@/utils/animation_utils"

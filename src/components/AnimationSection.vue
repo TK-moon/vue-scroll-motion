@@ -11,9 +11,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType } from "vue"
+import { defineComponent, ref } from "vue"
+import type { PropType } from "vue"
 import Animator from "./Animator.vue"
-import { AnimationType } from "@/utils/animation_utils"
+import type { AnimationType } from "@/utils/animation_utils"
 
 export default defineComponent({
   components: { Animator },
