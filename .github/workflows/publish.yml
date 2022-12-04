@@ -19,22 +19,24 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - name: Install Package
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
       - name: Set git config
         run: git config --global user.email "tkmoon.dev@gmail.com" && git config --global user.name "TK-moon"
 
       - name: Use Node 16
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
       - name: Bump Version
         run: npm version ${{ inputs.version }}
 
-      - name: Push Tag
-        run: git push origin main --tags
-
-      - name: Push Version
-        uses: actions/upload-artifact@v2
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
         with:
-          name: src
-          path: ./
+          token: ${{ secrets.NPM_PUBLISH_TOKEN }}
