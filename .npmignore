@@ -1,0 +1,16 @@
+src/
+node_modules/
+
+.git
+.github
+.gitignore
+
+.npmignore
+.npmrc
+
+.vscode
+.prettierrc
+README.md
+
+tsconfig*
+vite*
