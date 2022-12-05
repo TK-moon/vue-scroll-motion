@@ -1,1 +1,1 @@
-export { default as VueScrollMotion } from "./components/AnimationSection.vue"
+export default "./components/AnimationSection.vue"
