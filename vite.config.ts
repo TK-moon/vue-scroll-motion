@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
-      name: "vue-scroll-motion",
+      name: "VueScrollMotion",
       formats: ["es", "umd"],
       fileName: (format) => `vue-scroll-motion.${format}.js`,
     },
