@@ -1,7 +1,7 @@
 {
   "name": "vue-scroll-motion",
   "author": "TK Moon <tkmoon.dev@gmail.com>",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "description": "vue scroll animation library like scroll-timeline",
   "license": "MIT",
