@@ -26,7 +26,6 @@ npm install vue-scroll-motion
 import { defineComponent } from "vue"
 
 import VueScrollMotoin from 'vue-scroll-motion'
-import "vue-scroll-motion/dist/style.css"
 
 export default defineComponent({
   components: {
