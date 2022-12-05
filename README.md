@@ -24,9 +24,8 @@ npm install vue-scroll-motion
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import VueScrollMotoin from 'vue-scroll-motion'
 
-import { VueScrollMotion } from "vue-scroll-motion"
+import VueScrollMotoin from 'vue-scroll-motion'
 import "vue-scroll-motion/dist/style.css"
 
 export default defineComponent({
