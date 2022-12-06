@@ -42,7 +42,7 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
   animation_data: ReturnType<typeof generateScrollTimeline>
 ) => {
   return animation_data.map((v, index) => {
-    const style_keys = Object.keys(v.animation.to)
+    const style_keys = Object.keys(v.animation.to) as unknown as (keyof CSSProperties)[]
 
     return (scroll_percentage: number, element: HTMLElement) => {
       const in_range = v.percentage.from <= scroll_percentage && scroll_percentage < v.percentage.to
@@ -77,6 +77,26 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
         const translate_x = (current_x - before_x) * (section_scroll_percentage / 100) + before_x
 
         element.style.translate = `${translate_x}px ${translate_y}px`
+      }
+
+      if (style_keys.includes("scale")) {
+        if (v.animation.from.scale === undefined || v.animation.to.scale === undefined) {
+          throw new Error("scale property not available")
+        }
+
+        if (v.animation.from.scale > v.animation.to.scale) {
+          const from = parseInt(v.animation.from.scale.toString())
+          const to = parseInt(v.animation.to.scale.toString())
+
+          const scale = to + (1 - section_scroll_percentage / 100) * (from - to)
+          element.style.scale = scale.toString()
+        } else if (v.animation.from.scale < v.animation.to.scale) {
+          const from = parseInt(v.animation.from.scale.toString())
+          const to = parseInt(v.animation.to.scale.toString())
+
+          const scale = from + (section_scroll_percentage / 100) * (to - from)
+          element.style.scale = scale.toString()
+        }
       }
     }
   })

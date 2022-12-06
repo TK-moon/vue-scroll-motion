@@ -188,18 +188,13 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* &.animator-active {
-    will-change: auto;
-  }
-  &.animator-deactive {
-    will-change: unset;
-    z-index: -1;
-  } */
 
   &.animator-in-range {
+    position: fixed;
     will-change: auto;
   }
   &.animator-outof-range {
+    position: absolute;
     will-change: unset;
     z-index: -1;
   }
