@@ -1,6 +1,7 @@
 import type { CSSProperties } from "vue"
 
-export interface AnimationType extends CSSProperties {
+export type SupportAnimationType = "opacity" | "translate" | "scale"
+export interface AnimationType extends Pick<CSSProperties, SupportAnimationType> {
   test?: boolean
 }
 
