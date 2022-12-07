@@ -133,17 +133,12 @@ export default defineComponent({
 
       if (is_out_of_scroll_range) {
         this.in_range = false
-        Object.assign(this.animator_ref.style, { willChange: "unset" })
         if (scroll_percentage <= 0) {
           return this.initializeStartAnimation()
         } else if (scroll_percentage >= 100) {
           return this.initializeEndAnimation()
         }
       }
-
-      Object.assign(this.animator_ref.style, {
-        willChange: this.animation_timeline_data.animation_keys.join(","),
-      })
 
       this.in_range = true
       this.animation_timeline_data.animation_functions.forEach((renderSectionAnimation) => {
@@ -188,18 +183,16 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* &.animator-active {
-    will-change: auto;
-  }
-  &.animator-deactive {
-    will-change: unset;
-    z-index: -1;
-  } */
+
+  -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+  -webkit-transform: perspective(1000px);
 
   &.animator-in-range {
+    position: fixed;
     will-change: auto;
   }
   &.animator-outof-range {
+    position: absolute;
     will-change: unset;
     z-index: -1;
   }

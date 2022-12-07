@@ -12,6 +12,15 @@
     >
       <div>translate</div>
     </VueScrollMotion>
+    <VueScrollMotion
+      :animation="[
+        { opacity: 1, scale: 1 },
+        { opacity: 1, scale: 10 },
+        { opacity: 1, scale: 1 },
+      ]"
+    >
+      <div class="test">scale</div>
+    </VueScrollMotion>
     <VueScrollMotion :animation="[{ opacity: 0 }, { opacity: 1 }, { opacity: 0 }]">
       <div>allow multiple animation</div>
     </VueScrollMotion>
