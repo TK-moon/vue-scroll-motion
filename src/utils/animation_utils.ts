@@ -91,24 +91,32 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
 
           const scale = to + (1 - section_scroll_percentage / 100) * (from - to)
           element.style.scale = scale.toString()
+          return scale
         } else if (v.animation.from.scale < v.animation.to.scale) {
           const from = parseInt(v.animation.from.scale.toString())
           const to = parseInt(v.animation.to.scale.toString())
 
           const scale = from + (section_scroll_percentage / 100) * (to - from)
           element.style.scale = scale.toString()
+          return scale
         }
       }
     }
   })
 }
 
+/**
+ * @deprecated Rendring bug exist when set will-change manually
+ * @param animation
+ * @returns
+ */
 const getAnimationKeys = (animation: AnimationType[]) => {
   const animation_keys = new Set<CSSProperties>()
   animation.map((v) => {
     const keys = Object.keys(v) as unknown as CSSProperties[]
     keys.forEach((item) => animation_keys.add(item))
   })
+  animation_keys.delete("opacity" as Pick<CSSProperties, "opacity">)
   return Array.from(animation_keys)
 }
 
@@ -123,6 +131,7 @@ export const getAnimationTimelineData = (animation: AnimationType[]): getAnimati
   const scroll_timeline_data = generateScrollTimeline(animation)
   const animation_keys = getAnimationKeys(animation)
   const animation_functions = generateScrollAnimationFunctionsByScrollTimeline(scroll_timeline_data)
+
   return {
     start_style: scroll_timeline_data[0].animation.from,
     end_style: scroll_timeline_data[scroll_timeline_data.length - 1].animation.to,

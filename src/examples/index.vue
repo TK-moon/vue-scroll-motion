@@ -5,18 +5,18 @@
     </VueScrollMotion>
     <VueScrollMotion
       :animation="[
-        { opacity: 0, translate: '0 -100', scale: 1 },
-        { opacity: 1, translate: '0 0', scale: 1 },
-        { opacity: 0, translate: '0 100', scale: 1 },
+        { opacity: 0, translate: '0 -100' },
+        { opacity: 1, translate: '0 0' },
+        { opacity: 0, translate: '0 100' },
       ]"
     >
       <div>translate</div>
     </VueScrollMotion>
     <VueScrollMotion
       :animation="[
-        { opacity: 1, translate: '0 -100', scale: 1 },
-        { opacity: 1, translate: '0 0', scale: 10 },
-        { opacity: 1, translate: '0 100', scale: 1 },
+        { opacity: 1, scale: 1 },
+        { opacity: 1, scale: 10 },
+        { opacity: 1, scale: 1 },
       ]"
     >
       <div class="test">scale</div>
