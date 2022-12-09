@@ -18,9 +18,9 @@
     "url": "https://github.com/TK-moon/vue-scroll-motion.git"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config vite.config.dev.ts",
     "build": "run-p type-check build-only",
-    "preview": "vite preview",
+    "build:demo": "vite build --config vite.config.dev.ts",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
