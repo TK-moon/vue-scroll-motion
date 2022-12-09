@@ -1,8 +1,11 @@
 import type { CSSProperties } from "vue"
 
-export type SupportAnimationType = "opacity" | "translate" | "scale"
-export interface AnimationType extends Pick<CSSProperties, SupportAnimationType> {
-  test?: boolean
+export type SupportAnimationType = "opacity" | "translate" | "scale" | "rotate"
+
+type OverrideTypes = "rotate"
+
+export interface AnimationType extends Omit<Pick<CSSProperties, SupportAnimationType>, OverrideTypes> {
+  rotate?: number
 }
 
 interface ScrollAnimationDataType {
@@ -91,14 +94,32 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
 
           const scale = to + (1 - section_scroll_percentage / 100) * (from - to)
           element.style.scale = scale.toString()
-          return scale
         } else if (v.animation.from.scale < v.animation.to.scale) {
           const from = parseInt(v.animation.from.scale.toString())
           const to = parseInt(v.animation.to.scale.toString())
 
           const scale = from + (section_scroll_percentage / 100) * (to - from)
           element.style.scale = scale.toString()
-          return scale
+        }
+      }
+
+      if (style_keys.includes("rotate")) {
+        if (v.animation.from.rotate === undefined || v.animation.to.rotate === undefined) {
+          throw new Error("scale property not available")
+        }
+
+        if (v.animation.from.rotate > v.animation.to.rotate) {
+          const from = parseInt(v.animation.from.rotate.toString())
+          const to = parseInt(v.animation.to.rotate.toString())
+
+          const rotate = from + to * (section_scroll_percentage / 100)
+          element.style.rotate = `${rotate}deg`
+        } else if (v.animation.from.rotate < v.animation.to.rotate) {
+          const from = parseInt(v.animation.from.rotate.toString())
+          const to = parseInt(v.animation.to.rotate.toString())
+
+          const rotate = from + to * (section_scroll_percentage / 100)
+          element.style.rotate = `${rotate}deg`
         }
       }
     }

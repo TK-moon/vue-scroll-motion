@@ -184,9 +184,6 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
-  -webkit-transform: perspective(1000px);
-
   &.animator-in-range {
     position: fixed;
     will-change: auto;

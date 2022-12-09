@@ -12,6 +12,7 @@
     >
       <div>translate</div>
     </VueScrollMotion>
+    <VueScrollMotion :animation="[{ rotate: 180 }, { rotate: -180 }, { rotate: 180 }]"> Rotate </VueScrollMotion>
     <VueScrollMotion
       :animation="[
         { opacity: 1, scale: 1 },
