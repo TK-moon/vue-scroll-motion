@@ -83,3 +83,12 @@ export default defineComponent({
 `opacity`, `translate`, `rotate`, `scale`
 
 > Support for custom animation features will be provided
+
+---
+
+## Support
+
+- (!) Vue3
+- Chrome >= 104
+- Safari >= 14.1
+- IOS Safari >= 14.5
