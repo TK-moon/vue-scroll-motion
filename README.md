@@ -1,5 +1,10 @@
 # vue-scroll-motion
 
+
+![demo](https://user-images.githubusercontent.com/59918655/209465522-b3f89c2d-3166-4671-88a2-a6d33835e80e.gif)
+
+
+
 ## install
 
 ```
