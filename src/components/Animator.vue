@@ -142,7 +142,7 @@ export default defineComponent({
         renderSectionAnimation(scroll_percentage, animatorRef)
       })
     },
-    initialAnimation: function (scroll: number) {
+    renderAnimationWithRAF: function (scroll: number) {
       if (!this.animator_ref) return
 
       if (this.is_RAF_activated) {
@@ -161,7 +161,7 @@ export default defineComponent({
   watch: {
     scrollY: {
       handler: function (nv: number) {
-        this.initialAnimation(nv)
+        this.renderAnimationWithRAF(nv)
       },
       immediate: true,
     },
