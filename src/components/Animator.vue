@@ -42,13 +42,10 @@ export default defineComponent({
 
     return { animator_ref, section_ref, scrollY, animation_timeline_data, is_RAF_activated }
   },
-  mounted: function () {
-    this.initializeStartAnimation()
-  },
   data() {
     return {
       RAF_timeout: undefined as number | undefined,
-      in_range: true,
+      in_range: false,
     }
   },
   methods: {
@@ -145,7 +142,7 @@ export default defineComponent({
         renderSectionAnimation(scroll_percentage, animatorRef)
       })
     },
-    initialAnimation: function (scroll: number) {
+    renderAnimationWithRAF: function (scroll: number) {
       if (!this.animator_ref) return
 
       if (this.is_RAF_activated) {
@@ -162,8 +159,11 @@ export default defineComponent({
     },
   },
   watch: {
-    scrollY(nv) {
-      this.initialAnimation(nv)
+    scrollY: {
+      handler: function (nv: number) {
+        this.renderAnimationWithRAF(nv)
+      },
+      immediate: true,
     },
   },
   unmounted: function () {
