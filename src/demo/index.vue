@@ -50,3 +50,9 @@ export default defineComponent({
   color: red;
 }
 </style>
+
+<style>
+body {
+  margin: 0;
+}
+</style>

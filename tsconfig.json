@@ -14,10 +14,11 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     // "isolatedModules": false,
-    // "importsNotUsedAsValues": "preserve",
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "noEmit": false,
+    "preserveValueImports": false,
+    "importsNotUsedAsValues": "remove",
     "outDir": "./dist",
     "types": [
       "vite/client",
@@ -34,7 +35,7 @@
     "**/**/*.md",
     "**/dist",
     "packages/.test",
-    "packages/_docs"
+    "packages/_docs",
   ],
   "references": [
     {
