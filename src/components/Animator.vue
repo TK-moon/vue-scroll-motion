@@ -159,11 +159,8 @@ export default defineComponent({
     },
   },
   watch: {
-    scrollY: {
-      handler: function (nv: number) {
-        this.renderAnimationWithRAF(nv)
-      },
-      immediate: true,
+    scrollY: function (nv) {
+      this.renderAnimationWithRAF(nv)
     },
   },
   unmounted: function () {
