@@ -15,10 +15,6 @@ import type { AnimationType } from "@/utils/animation_utils"
 
 export default defineComponent({
   props: {
-    /**
-     * @deprecated
-     * use computed section_ref
-     */
     sectionRef: {
       type: Function as PropType<() => HTMLElement | undefined>,
       required: true,
@@ -27,7 +23,7 @@ export default defineComponent({
      * @deprecated
      * Intersection Observer가 IOS 사파리에서 주소창 높이가 변경될때 동작하지 않는 이슈로 사용 금지
      */
-    active: { type: Boolean, required: true },
+    // active: { type: Boolean, required: true },
     animation: { type: Object as PropType<AnimationType[]>, required: true },
   },
   setup(props) {
@@ -42,6 +38,9 @@ export default defineComponent({
 
     return { animator_ref, section_ref, scrollY, animation_timeline_data, is_RAF_activated }
   },
+  mounted: function () {
+    this.renderAnimation(this.scrollY)
+  },
   data() {
     return {
       RAF_timeout: undefined as number | undefined,
@@ -49,46 +48,6 @@ export default defineComponent({
     }
   },
   methods: {
-    /**
-     * IOS Safari때문에 Intersection Observer 못씀
-     */
-    // initialScrollAnimation: function () {
-    //   let thresholdSets = []
-    //   for (let i = 0; i <= 1.0; i += 0.01) thresholdSets.push(i)
-
-    //   useIntersectionObserver(this.section_ref, { threshold: thresholdSets }, (entries) => {
-    //     entries.forEach((entry) => {
-    //       if (!this.animatorRef || !this.active) return
-
-    //       if (this.RAF_timeout) {
-    //         cancelAnimationFrame(this.RAF_timeout)
-    //         this.RAF_timeout = undefined
-    //       }
-
-    //       const animatorRef = this.animatorRef
-    //       if (!this.section_ref || !animatorRef) return
-
-    //       this.RAF_timeout = requestAnimationFrame(() => {
-    //         const scroll_percentage = entry.intersectionRatio * 100
-
-    //         const is_out_of_scroll_range = 0 >= scroll_percentage || scroll_percentage >= 100
-    //         if (is_out_of_scroll_range) {
-    //           this.in_range = false
-    //           if (scroll_percentage <= 0) {
-    //             return this.initializeStartAnimation()
-    //           } else if (scroll_percentage >= 100) {
-    //             return this.initializeEndAnimation()
-    //           }
-    //         }
-    //         this.in_range = true
-
-    //         this.animation_timeline_data.animation_functions.forEach((v) => {
-    //           v(scroll_percentage, animatorRef)
-    //         })
-    //       })
-    //     })
-    //   })
-    // },
     /**
      * getScrollPercentage
      * @param current_scroll
