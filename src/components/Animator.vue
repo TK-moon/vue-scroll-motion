@@ -18,7 +18,7 @@ export default defineComponent({
      * use computed section_ref
      */
     sectionRef: {
-      type: Object as PropType<() => HTMLElement | undefined>,
+      type: Function as PropType<() => HTMLElement | undefined>,
       required: true,
     },
     animation: { type: Object as PropType<AnimationType[]>, required: true },
